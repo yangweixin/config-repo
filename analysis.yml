@@ -5,6 +5,31 @@ spring:
     active: dev
   session:
     timeout: 10
+  datasource:
+  #      url: jdbc:mysql://localhost:3306/test
+  #      username: root
+  #      password: yang123456
+        url: jdbc:mysql://121.41.31.76:3306/yijiayou_rds2?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: yijiayou
+        driver-class-name: com.mysql.jdbc.Driver
+        #连接池配置
+        max-idle: 5
+        max-wait: 10
+        min-idle: 5
+        initial-size: 5
+        validation-query: SELECT 1
+        #获取连接时候验证，会影响性能
+        test-on-borrow: false
+        #验证连接的有效性
+        test-while-idle: true
+        #在连接归还到连接池时是否测试该连接
+        test-on-return: false
+        #空闲连接回收的时间间隔，与test-while-idle一起使用，设置5分钟
+        time-between-eviction-runs-millis: 300000
+        #连接池空闲连接的有效时间 ，设置30分钟
+        min-evictable-idle-time-millis: 1800000
+        jdbc-interceptors: ConnectionState;SlowQueryReport(threshold=0)
 ---
 spring:
   profiles: dev
