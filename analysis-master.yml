@@ -1,2 +1,7 @@
-message:
-        hello
+spring:
+  profiles: prod
+server:
+  port: 8081
+loginuser:
+  username: leifeng
+  password: 123456
